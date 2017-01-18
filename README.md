@@ -1,2 +1,2 @@
 # Color-Cobra
-Python Script to rip color pallets from images
+Python Script to rip color palette from images
