@@ -11,6 +11,14 @@ def randRGB():
     rgb.append(random.randrange(0,255))
     return rgb
 
+def rgb2Hex(rgbList):
+    red = rgbList[0]*16*16*16*16
+    green = rgbList[1]*16*16
+    blue = rgbList[2]
+
+    rgbHex = red + green + blue
+    return hex(rgbHex)
+
 img = Image.open(sys.argv[1])
 size = 420,420
 img.thumbnail(size)
@@ -20,7 +28,6 @@ x_max,y_max = img.size
 #K Means Clustering Algorithm
 
 #Number of Clusters
-
 K = 5
 iterations = 4
 
@@ -74,4 +81,8 @@ for count in range(iterations):
         centroids[i][1] = int(blueSum)
         centroids[i][2] = int(greenSum)
 
-print (centroids)
+
+print ("Final Palette: ")
+for i in range(K):
+    print(rgb2Hex(centroids[i]))
+
